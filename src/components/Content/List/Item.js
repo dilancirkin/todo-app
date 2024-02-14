@@ -1,17 +1,26 @@
-import React from 'react'
+import React from "react";
+import { useTodo } from "../../../context/ToDoContext";
 
-const Item = ({todo}) => {
+const Item = ({ todo }) => {
+  const { toggleTodo } = useTodo();
+
+  const onChange = (id) => {
+    toggleTodo(id);
+  };
   return (
-    <li key={todo.id}
-                className={todo.completed ? "completed": ""}
-              >
-                <div className="view">
-                  <input className="toggle" type="checkbox" checked={todo.completed} />
-                  <label>{todo.text}</label>
-                  <button className="destroy"></button>
-                </div>
-              </li>
-  )
-}
+    <li key={todo.id} className={todo.completed ? "completed" : ""}>
+      <div className="view">
+        <input
+          className="toggle"
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => onChange(todo.id)}
+        />
+        <label>{todo.text}</label>
+        <button className="destroy"></button>
+      </div>
+    </li>
+  );
+};
 
-export default Item
+export default Item;
