@@ -3,19 +3,19 @@ import React from "react";
 const ContentFooter = () => {
   return (
     <footer className="footer">
-     <span className="todo-count">
-        <strong>2</strong>
+      <span className="todo-count">
+        <strong>2 </strong>
         items left
-     </span>
+      </span>
       <ul className="filters">
         <li>
-            <a className="selected">All</a>
+          <a className="selected">All</a>
         </li>
         <li>
-            <a>Active</a>
+          <a>Active</a>
         </li>
         <li>
-            <a>Completed</a>
+          <a>Completed</a>
         </li>
       </ul>
       <button className="clear-completed">Clear completed</button>
