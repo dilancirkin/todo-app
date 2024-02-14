@@ -1,11 +1,15 @@
 import Content from "./components/Content";
 import Header from "./components/Header";
+import { TodoProvider } from "./context/ToDoContext";
 function App() {
   return (
-    <section className="todoapp">
+    <TodoProvider>
+<section className="todoapp">
       <Header/>
       <Content/>
     </section>
+    </TodoProvider>
+    
    
   );
 }
