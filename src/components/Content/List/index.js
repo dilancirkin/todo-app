@@ -1,21 +1,27 @@
-import React from 'react'
-import { useTodo } from '../../../context/ToDoContext'
-import Item from './Item';
+import React from "react";
+import { useTodo } from "../../../context/ToDoContext";
+import Item from "./Item";
+
+let filtered = null;
 
 const List = () => {
+  const { todos, filter } = useTodo();
 
-    const {todos}=useTodo();
+  filtered = todos;
+
+  if (filter !== "all") {
+    filtered = todos.filter((todo) =>
+      filter === "active" ? todo.completed === false : todo.completed === true
+    );
+  }
 
   return (
     <ul className="todo-list">
-        {
-            todos.map((todo)=>(
-               <Item key={todo.id} todo={todo}/>
-            ))
-        }
-   
-  </ul>
-  )
-}
+      {filtered.map((todo) => (
+        <Item key={todo.id} todo={todo} />
+      ))}
+    </ul>
+  );
+};
 
-export default List
+export default List;

@@ -4,13 +4,11 @@ import { TodoProvider } from "./context/ToDoContext";
 function App() {
   return (
     <TodoProvider>
-<section className="todoapp">
-      <Header/>
-      <Content/>
-    </section>
+      <section className="todoapp">
+        <Header />
+        <Content />
+      </section>
     </TodoProvider>
-    
-   
   );
 }
 
